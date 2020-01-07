@@ -78,7 +78,7 @@ def leveranciersKeuze(m_email):
             grid.addWidget(logo , 0, 1, 1, 1, Qt.AlignRight)
             
             self.setLayout(grid)
-            self.setGeometry(100, 100, 150, 150)
+            self.setGeometry(600, 300, 150, 150)
     
             applyBtn = QPushButton('Zoeken')
             applyBtn.clicked.connect(self.accept)

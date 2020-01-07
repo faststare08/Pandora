@@ -75,7 +75,7 @@ def accKeuze(m_email):
             grid.addWidget(zktermEdit, 3, 1)
             
             self.setLayout(grid)
-            self.setGeometry(500, 300, 150, 150)
+            self.setGeometry(600, 300, 150, 150)
             
             grid.addWidget(QLabel('\u00A9 2017 all rights reserved dj.jansen@casema.nl'), 7, 0, 1, 2, Qt.AlignCenter)
             
