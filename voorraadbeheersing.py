@@ -155,7 +155,8 @@ def jaarVerbruik(m_email):
     data_list=[]
     for row in rpartikelen:
         data_list += [(row)] 
-        
+    
+    #determine minimum stock and order size based on annual consumption
     def aanpMinvoorraad(idx):
         martikelnr = idx.data()
         if idx.column() == 0:

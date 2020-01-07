@@ -158,8 +158,8 @@ def printRaaplijst(keuze, zoekterm, m_email, route):
         if keuze == 1:
             selrl = select([raaplijst, artikelen]).where(and_(raaplijst.c.geleverd < raaplijst.c.afroep,\
                  raaplijst.c.artikelID == artikelen.c.artikelID)).order_by(raaplijst.c.werkorder, raaplijst.c.leverdatum)
-            kop1 = 'Raaplijst Alle Afroepen '
-            tekst1 = ''
+            kop1 = ''
+            tekst1 = 'Raaplijst Alle Afroepen '
         elif keuze == 2:
             selrl = select([raaplijst, artikelen]).where(and_(raaplijst.c.werkorder < 800000000,\
               raaplijst.c.geleverd < raaplijst.c.afroep, raaplijst.c.artikelID ==\
@@ -200,8 +200,8 @@ def printRaaplijst(keuze, zoekterm, m_email, route):
             selrl = select([raaplijst, artikelen]).where(and_(raaplijst.c.geleverd >= raaplijst.c.afroep,\
                raaplijst.c.afroep > 0, raaplijst.c.artikelID == artikelen.c.artikelID))\
                .order_by(raaplijst.c.werkorder, raaplijst.c.leverdatum)
-            kop1 = 'Uitgeleverd ' 
-            tekst1 = ''
+            kop1 = ''
+            tekst1 = 'Uitgeleverd '
         else:
             ongInvoer()
             kiesSelektie(route, m_email)
@@ -243,8 +243,8 @@ def printRaaplijst(keuze, zoekterm, m_email, route):
                raaplijst.c.geleverd >= raaplijst.c.afroep, raaplijst.c.afroep > 0,\
                raaplijst.c.artikelID == artikelen.c.artikelID)).order_by(raaplijst.c.werkorder,\
                 raaplijst.c.leverdatum)
-            kop1 = 'Uitgeleverd ' 
-            tekst1 = ''
+            kop1 = ''
+            tekst1 = 'Uitgeleverd '
         else:
             ongInvoer()
             kiesSelektie(route, m_email)
@@ -286,8 +286,8 @@ def printRaaplijst(keuze, zoekterm, m_email, route):
                 raaplijst.c.geleverd >= raaplijst.c.afroep, raaplijst.c.afroep > 0,\
                 raaplijst.c.artikelID == artikelen.c.artikelID)).order_by(raaplijst.c.werkorder,\
                 raaplijst.c.leverdatum)
-            kop1 = 'Uitgeleverd ' 
-            tekst1 = ''
+            kop1 = ''
+            tekst1 = 'Uitgeleverd '
         else:
             ongInvoer()
             kiesSelektie(route, m_email)
@@ -886,7 +886,7 @@ def raapLijst(keuze, zoekterm, m_email, route):
                 foutHoev()
                 return('')
             try:
-                if mjaar%2 == 0:            #even jaartal
+                if mjaar%2 == 0:                       #even jaartal
                     stmt = update(artikelen).where(artikelen.c.artikelID == martnr).values(\
                      art_voorraad = artikelen.c.art_voorraad - mhoev, bestelstatus = martbestst,\
                      mutatiedatum = mboekd, reserveringsaldo = artikelen.c.reserveringsaldo - mhoev,\
