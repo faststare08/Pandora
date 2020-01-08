@@ -32,6 +32,7 @@ In tree pgadmin4 databases bisystem restore from bisystem.backup, right click bi
 Copy Pandora with folder structures in /home/postgres
 
 The fonts in Linux differ from Windows. (Install Arial, Comic Sans MS and Times)
+https://www.ostechnix.com/install-microsoft-windows-fonts-ubuntu-16-04/
    
 startup files in Linux:
 Copy pandora.png from folder LINUX in folder /home/postgres/.icons
