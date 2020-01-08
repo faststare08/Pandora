@@ -366,7 +366,7 @@ def printGrafiek(keuze, jrwk, m_email):
             axisY.setGridLineVisible(True)
             axisX.setShadesBrush(QBrush(QColor(245, 245 , 245)))
             axisX.setShadesVisible(True)
-            for x in range(1,53):
+            for x in range(1,54):
                 axisX.append(jaar+"-"+("0"+str(x))[-2:], x)
             axisX.setRange(0, 53)
             axisX.setLabelsAngle(-90)
