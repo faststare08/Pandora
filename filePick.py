@@ -41,8 +41,10 @@ def fileList(m_email, path):
           
        def getfile(self):
           fname = QFileDialog.getOpenFileName(self, 'Herprinten bestanden', path)
-          if fname[0].find(path[1:]) == -1:
+
+          if fname[0].find(path[1:]) == -1:  
               ongDir(m_email)
+              #if specified path differs from the actual path deny printing
           else:
               printFile(fname[0])
     		
