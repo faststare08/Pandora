@@ -377,7 +377,8 @@ def printGrafiek(keuze, jrwk, m_email):
             axisY.setTitleFont(font)
             axisY.setLabelFormat('%d')
             axisY.setTitleBrush(QBrush(Qt.black))
-            axisY.setRange(0,ysch)
+            axisY.setRange(0,ysch)    #disable for automatic Y scale 
+            #axisY.applyNiceNumbers() #enable by automatic Y scale
         
             Lfont = QFont("Sans Serif")         
             Dfont = QFont("Sans Serif")
