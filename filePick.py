@@ -41,10 +41,10 @@ def fileList(m_email, path):
           
        def getfile(self):
           fname = QFileDialog.getOpenFileName(self, 'Herprinten bestanden', path)
-          if fname[0].startswith(path[1:],10):
-              printFile(fname[0])
-          else:
+          if fname[0].find(path[1:]) == -1:
               ongDir(m_email)
+          else:
+              printFile(fname[0])
     		
        def getfiles(self):
           QFileDialog.DontUseNativeDialog
@@ -53,7 +53,6 @@ def fileList(m_email, path):
           dlg.setFilter("Text files (*.txt)")
  
           filenames = path
-
           if dlg.exec_():
              filenames = dlg.selectedFiles()
              f = open(filenames[0], 'r')
