@@ -121,8 +121,7 @@ def printFactuur(rpord,mstraat,mplaats,movbestnr):
     '==============================================================================================\n')    
     open(filename,'a').write(tail)
     if platform == 'win32':
-        print(mstraat,mplaats)
-        #os.startfile(filename, "print")
+        os.startfile(filename, "print")
     else:
         os.system("lpr "+filename)
     printing()
@@ -186,8 +185,7 @@ def printPakbon(rpord,mstraat,mplaats,movbestnr):
            +'{:>8s}'.format(row[15])+'{:>12s}'.format(row[9])+'  ________ \n')
         rgl += 1
     if platform == 'win32':
-        print(mstraat,mplaats)
-        #os.startfile(filename, "print")
+        os.startfile(filename, "print")
     else:
         os.system("lpr "+filename)
     printing()
