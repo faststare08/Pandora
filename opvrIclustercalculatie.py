@@ -548,7 +548,7 @@ def printCalculatie(mcalnr):
             kop=\
     ('Werkorder: '+ str(row[2])+' '+'{:<24s}'.format(str(row[10]))+'  Calculatie: '+str(row[3])+'  Datum: '+str(datetime.datetime.now())[0:10]+'  Blad : '+str(mblad)+'\n'+
     '================================================================================================\n'+
-    'Cluster  Omschrijving        Eenheid Aantal  Materialen       Lonen                       Bedrag\n'+
+    'Cluster  Omschrijving       Eenheid Aantal  Materialen       Lonen                       Bedrag\n'+
     '================================================================================================\n')
             if rgl == 0:
                 open(filename, 'w').write(kop)
@@ -563,7 +563,7 @@ def printCalculatie(mcalnr):
         rgl += 1
     tail =(\
     '-------------------------------------------------------------------------------------------------\n'+
-    'Totalen                                    '+'{:12.2f}'.format(mmat)+'{:12.2f}'.format(mlon)+'                 '+'{:12.2f}'.format(mtotaal)+'\n'
+    'Totalen                                   '+'{:12.2f}'.format(mmat)+'{:12.2f}'.format(mlon)+'                 '+'{:12.2f}'.format(mtotaal)+'\n'
     '=================================================================================================\n')    
     open(filename,'a').write(tail)
     if platform == 'win32':
