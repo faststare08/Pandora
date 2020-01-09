@@ -17,7 +17,7 @@ def checkpostcode(mpostcode,mhuisnr):
              Column('plaatsID', None, ForeignKey('plaats.plaatsID')))
       engine = create_engine('postgresql+psycopg2://postgres@localhost/bisystem')
       con = engine.connect()
-      s = select([postcodes, plaats, straat]).\
+      s = select(['*']).\
                 where(and_(postcodes.c.straatID == straat.c.straatID,
                 straat.c.plaatsID == plaats.c.plaatsID,     
                 postcodes.c.postcode.like(mpostcode),

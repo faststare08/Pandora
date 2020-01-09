@@ -147,7 +147,15 @@ def kiesOrder(m_email):
     data_list=[]
     for row in rpord:
         data_list += [(row)]
-
+        
+    def Heading(movbestnr, mblad):
+        kop=\
+            ('Ordernummer: '+ str(movbestnr)+'          Datum: '+str(datetime.datetime.now())[0:10]+'      Besteldatum: '+str(rpc[2])+' Blad : '+str(mblad)+'\n'+
+            '==============================================================================================\n'+
+            'Artikelnr  Omschrijving                        Eenheid Aantal     Prijs   Subtotaal       BTW \n'+
+            '==============================================================================================\n')
+        return(kop)
+        
     def printFactuur(idx):
         from sys import platform
         movbestnr = idx.data()
@@ -190,21 +198,17 @@ def kiesOrder(m_email):
              mstraat+' '+rpc[15]+rpc[16]+',\n'+\
              rpc[14]+' '+mplaats+'.\n\n\n\n\n')
             open(filename,'w').write(adreskop)
-            kop=\
-            ('Ordernummer: '+ str(movbestnr)+'          Datum: '+str(datetime.datetime.now())[0:10]+'      Besteldatum: '+str(rpc[2])+' Blad : '+str(mblad)+'\n'+
-            '==============================================================================================\n'+
-            'Artikelnr  Omschrijving                        Eenheid Aantal     Prijs   Subtotaal       BTW \n'+
-            '==============================================================================================\n')
             mtotaal = 0
             
             for row in rpova:
-                if rgl == 0 and mblad == 1:
-                    open(filename, 'w').write(adreskop)
+                if rgl == 0:
+                    kop =  Heading(movbestnr, mblad)
                     open(filename, 'a').write(kop)
                     rgl = 16
                 elif rgl%57 == 0:
-                    open(filename, 'a').write(kop)
                     mblad += 1
+                    kop =  Heading(movbestnr, mblad)
+                    open(filename, 'a').write(kop)
                 msub = row[3]*row[5]
                 open(filename,'a').write('{:<11d}'.format(row[2])+'{:<37.35s}'.format(row[11])+\
                  '{:>6s}'.format(row[14])+' '+'{:>6.2f}'.format(row[3])+'{:>10.2f}'.format(row[5])+\
