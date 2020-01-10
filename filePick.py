@@ -37,30 +37,16 @@ def fileList(m_email, path):
        def __init__(self, parent = None):
           super(bestandLijst, self).__init__(parent)
           self.getfile()
-          self.contents = QTextEdit()
-          
+                 
        def getfile(self):
           fname = QFileDialog.getOpenFileName(self, 'Herprinten bestanden', path)
 
           if fname[0].find(path[1:]) == -1:  
               ongDir(m_email)
               #if specified path differs from the actual path deny printing
+              #not secure enough, looking for enother solution
           else:
               printFile(fname[0])
-    		
-       def getfiles(self):
-          QFileDialog.DontUseNativeDialog
-          dlg = QFileDialog()
-          dlg.setFileMode(QFileDialog.AnyFile)
-          dlg.setFilter("Text files (*.txt)")
- 
-          filenames = path
-          if dlg.exec_():
-             filenames = dlg.selectedFiles()
-             f = open(filenames[0], 'r')
-             with f:
-                data = f.read()
-                self.contents.setText(data)
- 
+
     bestandLijst()
     hoofdMenu(m_email)
