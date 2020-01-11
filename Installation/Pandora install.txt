@@ -46,7 +46,6 @@ pgdump-custom.bat is included for backup database (change pathnames to your own 
 If you change install folders, the pathnames in pgrestore-custom.bat and pgdump-custom.bat must be changed.
 
 Copy  all files and folders in a folder Pandora keep the folder structure as it is.
-Make all folders in \Pandora\forms hidden (Only Folders)
 Edit shortcut Pandora to your own Path where you copied Pandora
 The admin user is: dj.jansen@casema.nl password: postgres45
 other users password: wieookweer
