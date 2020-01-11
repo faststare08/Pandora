@@ -45,8 +45,8 @@ def fileList(m_email, path):
           grid.addWidget(logo , 0, 2, 1, 1, Qt.AlignRight)
           
           plbl = QLabel()
-          plbl = QLabel('Printen')
-          plbl.setStyleSheet("color:rgba(45, 83, 115, 255); font: 25pt Comic Sans MS")
+          plbl = QLabel('Printen\nLijsten')
+          plbl.setStyleSheet("color:rgba(45, 83, 115, 255); font: 20pt Comic Sans MS")
           grid.addWidget(plbl, 0, 1)
                 
           lbl = QLabel()
