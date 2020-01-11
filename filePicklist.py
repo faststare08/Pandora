@@ -66,7 +66,7 @@ def fileList(m_email, path):
               grid.addWidget(self.cb, 1, 0, 1, 3, Qt.AlignCenter)
               x += 1
           self.cb.activated[str].connect(self.cbChanged)
-          self.cb.setStyleSheet("font: 10pt Comic Sans MS; color: black ; background-color: #D9E1DF") 
+          self.cb.setStyleSheet("font: 10pt Arial; color: black ; background-color: #D9E1DF") 
               
           cancelBtn = QPushButton('Sluiten')
           cancelBtn.clicked.connect(lambda: windowSluit(self, m_email))  
