@@ -1170,49 +1170,82 @@ def hoofdMenu(m_email):
         import wijzWerktarief
         wijzWerktarief.winKeuze(m_email)
     elif mk15 == '1' and mp[8][5] == '1':
-        path = './forms/Intern_Clustercalculaties/'
-        import filePick
-        filePick.fileList(m_email, path)
+        if sys.platform == 'win32':
+            path = '.\\forms\\Intern_Clustercalculaties\\'
+        else:
+            path = './forms/Intern_Clustercalculaties/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)
     elif mk15 == '2' and mp[9][5] == '1':
-        path = './forms/Extern_Clustercalculaties/'
-        import filePick
-        filePick.fileList(m_email, path) 
+        if sys.platform == 'win32':
+            path = '.\\forms\\Extern_Clustercalculaties\\'
+        else:
+            path = './forms/Extern_Clustercalculaties/'
+        import filePicklist
+        filePicklist.fileList(m_email, path) 
     elif mk15 == '3' and (mp[5][5] == '1' or mp[3][5] == '1'):
-        path = './forms/Intern_Orderbrieven/'
-        import filePick
-        filePick.fileList(m_email, path)
+        if sys.platform == 'win32':
+            path = '.\\forms\\Intern_Orderbrieven\\'
+        else:
+            path = './forms/Intern_Orderbrieven/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)
     elif mk15 == '4' and mp[6][5] == '1':
-        path = './forms/Raaplijsten/'
-        import filePick
-        filePick.fileList(m_email, path)
+        if sys.platform == 'win32':
+            path = '.\\forms\\Raaplijsten\\'
+        else:
+            path = './forms/Raaplijsten/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)
     elif mk15 == '5' and mp[7][5] == '1':
-        path = './forms/Raaplijsten/'
-        import filePick
-        filePick.fileList(m_email, path)
+        if sys.platform == 'win32':
+            path = '.\\forms\\Raaplijsten\\'
+        else:
+            path = './forms/Raaplijsten/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)
     elif mk15 == '6' and mp[5][5] == '1':
-        path = './forms/Raaplijsten/'
-        import filePick
-        filePick.fileList(m_email, path)    
+        if sys.platform == 'win32':
+            path = '.\\forms\\Raaplijsten\\'
+        else:
+            path = './forms/Raaplijsten/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)    
     elif mk15 == '7' and mp[5][5] == '1':
-        path = './forms/Weborders_Pakbonnen/'
-        import filePick
-        filePick.fileList(m_email, path)    
+        if sys.platform == 'win32':
+            path = '.\\forms\\Weborders_Pakbonnen\\'
+        else:
+            path = './forms/Weborders_Pakbonnen/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)    
     elif mk15 == '8' and mp[10][5] == '1':
-        path = './forms/Uren/'
-        import filePick
-        filePick.fileList(m_email, path)    
+        if sys.platform == 'win32':
+            path = '.\\forms\\Uren\\'
+        else:
+            path = './forms/Uren/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)    
     elif mk15 == '9' and mp[10][5] == '1':
-        path = './forms/Lonen/'
-        import filePick
-        filePick.fileList(m_email, path)    
+        if sys.platform == 'win32':
+            path = '.\\forms\\Lonen\\'
+        else:
+            path = './forms/Lonen/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)    
     elif (mk15 == 'A' or mk15 == 'a') and mp[11][5] == '1':
-        path = './forms/Facturen_Werken/'
-        import filePick
-        filePick.fileList(m_email, path)    
+        if sys.platform == 'win32':
+            path = '.\\forms\\Facturen_Werken\\'
+        else:
+            path = './forms/Facturen_Werken/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)    
     elif (mk15 == 'B' or mk15 == 'b') and mp[11][5] == '1':
-        path = './forms/Weborders_Facturen/'
-        import filePick
-        filePick.fileList(m_email, path)    
+        if sys.platform == 'win32':
+            path = '.\\forms\\Weborders_Facturen\\'
+        else:
+            path = './forms/Weborders_Facturen/'
+        import filePicklist
+        filePicklist.fileList(m_email, path)    
     else:
         geenToegang() 
         hoofdMenu(m_email)
