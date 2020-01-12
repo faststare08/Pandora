@@ -1,4 +1,5 @@
 from login import hoofdMenu
+from sys import platform
 import os
 from PyQt5.QtCore  import Qt
 from PyQt5.QtGui import QFont, QPixmap, QIcon
@@ -20,7 +21,6 @@ def windowSluit(self, m_email):
     hoofdMenu(m_email)
         
 def printFile(filename, m_email, path):
-    from sys import platform
     if platform == 'win32':
         os.startfile(path+filename, "print")
     else:
@@ -52,22 +52,26 @@ def fileList(m_email, path):
           lbl = QLabel()
           pixmap = QPixmap('./images/logos/verbinding.jpg')
           lbl.setPixmap(pixmap)
-          grid.addWidget(lbl, 0, 0)
+          grid.addWidget(lbl, 0, 0, 1, 1)
                     
           self.cb = QComboBox()
-          self.cb.setFixedWidth(430)
+          self.cb.setFixedWidth(350)
+          self.cb.setFont(QFont("Arial",10))
+          if platform == 'win32':
+              self.cb.setStyleSheet("color: black;  background-color: #F8F7EE")
+          else:
+              self.cb.setStyleSheet("combobox-popup: 0;")
           self.Keuze = QLabel()
-          
-          self.cb.addItem('                               Kies bestand')
-          grid.addWidget(self.cb, 1, 0, 1, 3, Qt.AlignCenter)
+          self.cb.addItem('                       Kies bestand')
+          grid.addWidget(self.cb, 1, 0, 1, 3, Qt.AlignRight)
           x = 0
           for item in filelist:
               self.cb.addItem(filelist[x])
-              grid.addWidget(self.cb, 1, 0, 1, 3, Qt.AlignCenter)
+              self.cb.model().sort(0)
+              grid.addWidget(self.cb, 1, 0, 1, 3, Qt.AlignRight)
               x += 1
           self.cb.activated[str].connect(self.cbChanged)
-          self.cb.setStyleSheet("font: 10pt Arial; color: black ; background-color: #D9E1DF") 
-              
+                
           cancelBtn = QPushButton('Sluiten')
           cancelBtn.clicked.connect(lambda: windowSluit(self, m_email))  
             
