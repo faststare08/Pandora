@@ -1,10 +1,10 @@
 from login import hoofdMenu
 from sys import platform
 import os
-from PyQt5.QtCore  import Qt
-from PyQt5.QtGui import QFont, QPixmap, QIcon
+from PyQt5.QtCore  import Qt, QRegExp
+from PyQt5.QtGui import QFont, QPixmap, QIcon, QRegExpValidator
 from PyQt5.QtWidgets import QDialog, QGridLayout, QLabel, QMessageBox,\
-                            QComboBox, QPushButton
+                            QComboBox, QPushButton, QLineEdit
 
 def printing():
     msg = QMessageBox()
@@ -26,7 +26,6 @@ def printFile(filename, m_email, path):
     else:
         os.system("lpr "+path+filename)
     printing()
-    fileList(m_email, path)
 
 def fileList(m_email, path):
     filelist = os.listdir(path)
@@ -71,11 +70,29 @@ def fileList(m_email, path):
                   grid.addWidget(self.cb, 1, 0, 1, 3, Qt.AlignRight)
                   
               self.cb.activated[str].connect(self.cbChanged)
+              
+              self.aantal = QLabel()
+              aantalEdit = QLineEdit('1')
+              aantalEdit.setStyleSheet("background: #F8F7EE")
+              aantalEdit.setFixedWidth(30)
+              aantalEdit.setFont(QFont("Arial",10))
+              aantalEdit.textChanged.connect(self.aantalChanged)
+              reg_ex = QRegExp("^[0-9]{1,2}$")
+              input_validator = QRegExpValidator(reg_ex, aantalEdit)
+              aantalEdit.setValidator(input_validator)
+              
+              grid.addWidget(QLabel('Aantal kopieën te printen'), 3, 1, 1, 2)
+              grid.addWidget(aantalEdit, 3, 2, 1, 1, Qt.AlignRight)
+              
+              plbl = QLabel()
+              pmap = QPixmap('./images/thumbs/MG3650.jpg')
+              plbl.setPixmap(pmap)
+              grid.addWidget(plbl , 3, 0, 2, 1, Qt.AlignCenter)
                     
               cancelBtn = QPushButton('Sluiten')
               cancelBtn.clicked.connect(lambda: windowSluit(self, m_email))  
                 
-              grid.addWidget(cancelBtn, 3, 1, 1, 1, Qt.AlignRight)
+              grid.addWidget(cancelBtn, 4, 1, 1, 1, Qt.AlignRight)
               cancelBtn.setFont(QFont("Arial",10))
               cancelBtn.setFixedWidth(90)
               cancelBtn.setStyleSheet("color: black;  background-color: gainsboro")    
@@ -83,35 +100,46 @@ def fileList(m_email, path):
               printBtn = QPushButton('Printen')
               printBtn.clicked.connect(self.accept)  
                 
-              grid.addWidget(printBtn,  3, 2)
+              grid.addWidget(printBtn,  4, 2)
               printBtn.setFont(QFont("Arial",10))
               printBtn.setFixedWidth(90)
               printBtn.setStyleSheet("color: black;  background-color: gainsboro")    
                   
-              grid.addWidget(QLabel('\u00A9 2017 all rights reserved dj.jansen@casema.nl'), 4, 0, 1, 3, Qt.AlignCenter)
+              grid.addWidget(QLabel('\u00A9 2017 all rights reserved dj.jansen@casema.nl'), 5, 0, 1, 3, Qt.AlignCenter)
                 
               self.setLayout(grid)
               self.setGeometry(550, 300, 150, 150)
           
         def cbChanged(self, text):
               self.Keuze.setText(text)
-            
+              
+        def aantalChanged(self, text):
+             self.aantal.setText(text)
+             
         def returncb(self):
-              return self.Keuze.text()
+             return self.Keuze.text()
+          
+        def returnaant(self):
+            return self.aantal.text()
         
         @staticmethod
         def getData(parent=None):
               dialog = combo(parent)
               dialog.exec_()
-              return [dialog.returncb()]
+              return [dialog.returncb(), dialog.returnaant()]
            
     win = combo()
     data = win.getData()
-    
     if data[0] == '' or data[0][0] == ' ':
-        fileList(m_email, path)
+            fileList(m_email, path)
     elif data[0]:
+        if not data[1]:
+            mhoev = '1'
+        else:
+            mhoev = data[1]
         filename = data[0]
-        printFile(filename, m_email, path)
-    else:
+        for x in range(0, int(mhoev)):
+            printFile(filename, m_email, path)
         fileList(m_email, path)
+    else:
+        fileList(m_email, path)            
