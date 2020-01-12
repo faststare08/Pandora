@@ -4,7 +4,7 @@ import os
 from PyQt5.QtCore  import Qt
 from PyQt5.QtGui import QFont, QPixmap, QIcon
 from PyQt5.QtWidgets import QDialog, QGridLayout, QLabel, QMessageBox,\
-                QComboBox, QPushButton
+                            QComboBox, QPushButton
 
 def printing():
     msg = QMessageBox()
@@ -55,21 +55,21 @@ def fileList(m_email, path):
               grid.addWidget(lbl, 0, 0, 1, 1)
                         
               self.cb = QComboBox()
-              self.cb.setFixedWidth(350)
+              self.cb.setFixedWidth(420)
               self.cb.setFont(QFont("Arial",10))
               if platform == 'win32':
                   self.cb.setStyleSheet("color: black;  background-color: #F8F7EE")
               else:
                   self.cb.setStyleSheet("combobox-popup: 0;")
               self.Keuze = QLabel()
-              self.cb.addItem('                       Kies bestand')
+              self.cb.addItem('                                 Kies bestand')
               grid.addWidget(self.cb, 1, 0, 1, 3, Qt.AlignRight)
-              x = 0
-              for item in filelist:
-                  self.cb.addItem(filelist[x])
+              
+              for item in range(len(filelist)):
+                  self.cb.addItem(filelist[item])
                   self.cb.model().sort(0)
                   grid.addWidget(self.cb, 1, 0, 1, 3, Qt.AlignRight)
-                  x += 1
+                  
               self.cb.activated[str].connect(self.cbChanged)
                     
               cancelBtn = QPushButton('Sluiten')
