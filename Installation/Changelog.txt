@@ -1,0 +1,7 @@
+From now on updates and changes are discribed on this page
+
+2020-11-01 filePick.py is replaced by filePicklist.py due to security issues with folder traversal
+            login.py is changed for filePicklist entrance. The issues are solved with the new version.
+            Forms: several names from files removed spaces, for Linux can't handle spaces in filenames
+2020-12-01 filePick.py visible QComboboxitems 10, adjustment with setStyleSheet for Linux
+           font and color  and sort items adjustments for QComboBox

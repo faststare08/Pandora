@@ -56,7 +56,3 @@ For translations: Google is your friend!
 Dirk Jansen
 dj.jansen@casema.nl
 
-upgrade 2020-11=01 filePick.py is replaced by filePicklist.py due to security issues with folder traversal
-also login.py is changed. The issues are solved with the new version.
-forms: several names from files removed spaces, for Linux can't handle spaces in filenames
-
