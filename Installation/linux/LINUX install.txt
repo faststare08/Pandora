@@ -21,7 +21,7 @@ pip3 install psycopg2
 Copy .pgpass in /home/postgres 
 for installation postgresql follow steps in:
 https://tecadmin.net/install-postgresql-server-on-ubuntu/
-additional set password in psql with \password
+additional set password in psql with \password  (postgres45)
 Install pgadmin4 follow steps in:
 https://tecadmin.net/install-pgadmin4-on-ubuntu/
 install pgadmin with:
@@ -37,3 +37,8 @@ https://www.ostechnix.com/install-microsoft-windows-fonts-ubuntu-16-04/
 startup files in Linux:
 Copy pandora.png from folder LINUX in folder /home/postgres/.icons
 Copy Pandora.desktop from folder LINUX in /home/postgres/.local/share/applications
+To compile all Pandora scripts in Python:
+Open Terminal Ctrl+Alt+t
+cd Pandora
+python3 -m compileall ./
+
