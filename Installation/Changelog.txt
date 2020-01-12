@@ -1,4 +1,4 @@
-From now on updates and changes are discribed on this page
+From now on updates and changes are described on this page
 
 2020-11-01 filePick.py is replaced by filePicklist.py due to security issues with folder traversal
            login.py is changed for filePicklist entrances. The issues are solved with the new version.
