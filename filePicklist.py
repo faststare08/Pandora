@@ -25,8 +25,7 @@ def printFile(filename, m_email, path):
         os.startfile(path+filename, "print")
     else:
         os.system("lpr "+path+filename)
-    printing()
-
+    
 def fileList(m_email, path):
     filelist = os.listdir(path)
     class combo(QDialog):
@@ -140,6 +139,7 @@ def fileList(m_email, path):
         filename = data[0]
         for x in range(0, int(mhoev)):
             printFile(filename, m_email, path)
+        printing()
         fileList(m_email, path)
     else:
         fileList(m_email, path)            
