@@ -208,6 +208,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Kosten totaal begroot'
                 t2 = 'Kosten totaal werkelijk'
                 t3 = 'Kosten totaal '
+                c1 = Qt.red
+                c2 = Qt.blue
                 ysch =  160000000
             elif keuze == '2':
                 s1 = 8
@@ -215,6 +217,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Lonen begroot'
                 t2 = 'Lonen werkelijk'
                 t3 = 'Lonen '
+                c1 = Qt.green
+                c2 = Qt.darkBlue
                 ysch =  100000000
             elif keuze == '3':
                 s1 = 10
@@ -222,6 +226,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Materialen begroot'
                 t2 = 'Materialen werkelijk'
                 t3 = 'Materialen'
+                c1 = Qt.cyan
+                c2 = Qt.magenta
                 ysch =  60000000       
             elif keuze == '4':
                 s1 = 12
@@ -229,6 +235,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Materiëel begroot'
                 t2 = 'Materiëel werkelijk'
                 t3 = 'Materiëel '
+                c1 = Qt.darkYellow
+                c2 = Qt.darkGreen
                 ysch =  20000000
             elif keuze == '5':
                 s1 = 16
@@ -236,6 +244,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Inhuur begroot'
                 t2 = 'Inhuur werkelijk'
                 t3 = 'Inhuur '
+                c1 = Qt.darkBlue
+                c2 = Qt.darkRed
                 ysch =  30000000
             elif keuze == '6':
                 s1 = 18
@@ -243,6 +253,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Diensten begroot'
                 t2 = 'Diensten werkelijk'
                 t3 = 'Diensten '
+                c1 = Qt.red
+                c2 = Qt.blue
                 ysch =  30000000    
             elif keuze == '7':
                 s1 = 14
@@ -250,6 +262,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Projektkosten begroot'
                 t2 = 'Projektkosten werkelijk'
                 t3 = 'Projektkosten '
+                c1 = Qt.darkYellow
+                c2 = Qt.darkCyan
                 ysch =  10000000    
             elif keuze == '8':
                 y3 = [0,]
@@ -267,6 +281,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Bruto winst prognose'
                 t2 = 'Bruto winst actueel'
                 t3 = 'Bruto winst - prognose / aktueel '
+                c1 = Qt.darkCyan
+                c2 = Qt.darkMagenta
                 ysch =  20000000
             elif keuze == '9':
                 s1 = 6
@@ -274,6 +290,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Onderhandenwerk'
                 t2 = 'Betaald bedrag'
                 t3 = 'Onderhandenwerk - Betaald bedrag '
+                c1 = Qt.yellow
+                c2 = Qt.green
                 ysch =  160000000
             elif keuze == 'A':
                 y4 = [0,]
@@ -291,6 +309,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Omzet prognose'
                 t2 = 'Omzet aktueel'
                 t3 = 'Omzet '
+                c1 = Qt.red
+                c2 = Qt.blue
                 ysch =  160000000
             elif keuze == 'B':
                 s1 = 20
@@ -298,6 +318,8 @@ def printGrafiek(keuze, jrwk, m_email):
                 t1 = 'Bruto winst werkelijk'
                 t2 = 'Meerminderwerk'
                 t3 = 'Bruto winst werkelijk / Meerminderwerk '
+                c1 = Qt.darkRed
+                c2 = Qt.darkBlue
                 ysch =  30000000
       
             x = [0,]
@@ -332,8 +354,8 @@ def printGrafiek(keuze, jrwk, m_email):
             chart.addSeries(series1)
             chart.addSeries(series2)
              
-            series1.setColor(QColor(Qt.red))
-            series2.setColor(QColor(Qt.blue))
+            series1.setColor(QColor(c1))
+            series2.setColor(QColor(c2))
             series1.setName(t1)
             series2.setName(t2)
             chart.legend().setVisible(True)
