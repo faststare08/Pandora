@@ -228,6 +228,7 @@ def writeVal(valint , rpweb, self):
     engine = create_engine('postgresql+psycopg2://postgres@localhost/bisystem')
     con = engine.connect()
     if valint == 0:
+        tekst = "Aantal is 0, de bestelregel is verwijderd"
         delart = delete(webbestellingen).where(webbestellingen.c.webID == rpweb[6])
         con.execute(delart)
     else:
@@ -237,12 +238,13 @@ def writeVal(valint , rpweb, self):
     updart = update(artikelen).where(artikelen.c.artikelID == rpweb[7]).\
             values(reserveringsaldo = artikelen.c.reserveringsaldo + valint - rpweb[9])
     con.execute(updart)
+    tekst = 'Bestelaantal is aangepast naar '+str(valint)+'.'
     self.close()
     msg = QMessageBox()
     msg.setStyleSheet("color: black;  background-color: gainsboro")
     msg.setWindowIcon(QIcon('./images/logos/logo.jpg'))
     msg.setIcon(QMessageBox.Information)
-    msg.setText('Bestelaantal aangepast!')
+    msg.setText(tekst)
     msg.setWindowTitle('Bestelaantal')
     msg.exec_()
     
