@@ -5,7 +5,26 @@ from PyQt5.QtCore  import Qt, QRegExp
 from PyQt5.QtGui import QFont, QPixmap, QIcon, QRegExpValidator
 from PyQt5.QtWidgets import QDialog, QGridLayout, QLabel, QMessageBox,\
                             QComboBox, QPushButton, QLineEdit
-
+ 
+def windowSluit(self, m_email):
+    self.close()
+    hoofdMenu(m_email)
+    
+def geenMenu():
+    msg = QMessageBox()
+    msg.setStyleSheet("color: black;  background-color: gainsboro")
+    msg.setWindowIcon(QIcon('./images/logos/logo.jpg')) 
+    msg.setIcon(QMessageBox.Warning)
+    msg.setText('Geen bestandsnaam gekozen!')
+    msg.setWindowTitle('Geen keuze')
+    msg.exec_()
+        
+def printFile(filename, m_email, path):
+    if platform == 'win32':
+        os.startfile(path+filename, "print")
+    else:
+        os.system("lpr "+path+filename)
+        
 def printing():
     msg = QMessageBox()
     msg.setStyleSheet("color: black;  background-color: gainsboro")
@@ -15,16 +34,6 @@ def printing():
     msg.setWindowTitle('Printen diverse formulieren')
     msg.setWindowIcon(QIcon('./images/logos/logo.jpg'))
     msg.exec_()
- 
-def windowSluit(self, m_email):
-    self.close()
-    hoofdMenu(m_email)
-        
-def printFile(filename, m_email, path):
-    if platform == 'win32':
-        os.startfile(path+filename, "print")
-    else:
-        os.system("lpr "+path+filename)
     
 def fileList(m_email, path):
     filelist = os.listdir(path)
@@ -130,7 +139,8 @@ def fileList(m_email, path):
     win = combo()
     data = win.getData()
     if data[0] == '' or data[0][0] == ' ':
-            fileList(m_email, path)
+        geenMenu()
+        fileList(m_email, path)
     elif data[0]:
         if not data[1]:
             mhoev = '1'
