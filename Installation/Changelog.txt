@@ -8,4 +8,6 @@ From now on updates and changes are described on this page
            filepicklist.py number of copies supplied
 2020-13-01 filePicklist.py warning added if no filename is selected.
            toonGrafieken.py colors differentiated graph lines
+           LINUX Installation.txt changed for inststallation python3 and pip3 installation
+           for python3 is installed on newest version Unbuntu
            
