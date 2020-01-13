@@ -12,7 +12,7 @@ set fonts and margins for printing (A4) with:
 lpoptions -o page-left=18 -o page-right=0 -o page-top=25 -o page-bottom=80 -o cpi=13 -o lpi=6
 Follow these settings exactly for printlists with more pages
 
-sudo apt-get install python3
+sudo apt-get install python3 (if not yet installed)
 pip3 install pyqt5
 pip3 install pyqtchart
 pip3 install sqlalchemy
