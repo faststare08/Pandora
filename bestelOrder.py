@@ -12,7 +12,7 @@ from sqlalchemy.exc import IntegrityError
 def windowSluit(self, m_email):
     self.close()
     hoofdMenu(m_email)
-    
+
 def bestGelukt():
     msg = QMessageBox()
     msg.setStyleSheet("color: black;  background-color: gainsboro")
@@ -238,6 +238,13 @@ def writeVal(valint , rpweb, self):
             values(reserveringsaldo = artikelen.c.reserveringsaldo + valint - rpweb[9])
     con.execute(updart)
     self.close()
+    msg = QMessageBox()
+    msg.setStyleSheet("color: black;  background-color: gainsboro")
+    msg.setWindowIcon(QIcon('./images/logos/logo.jpg'))
+    msg.setIcon(QMessageBox.Information)
+    msg.setText('Bestelaantal aangepast!')
+    msg.setWindowTitle('Bestelaantal')
+    msg.exec_()
     
 def invoerOK(mbedrag, mrek, martnr, mhoev, movbestnr, m_email, klmail):
     msg = QMessageBox()
@@ -980,11 +987,19 @@ def showBasket(m_email, self, btnStatus, klmail, subtot, btwsub):
                         pixmap = QPixmap(rpweb[2])
                         lblpic.setPixmap(pixmap)
                         grid.addWidget(lblpic , 3, 0, 2, 1)
+                        
+                        closeBtn = QPushButton('Sluiten')
+                        closeBtn.clicked.connect(self.close)
+                       
+                        grid.addWidget(closeBtn, 4, 0, 1, 1, Qt.AlignRight)
+                        closeBtn.setFont(QFont("Arial",10))
+                        closeBtn.setFixedWidth(100) 
+                        closeBtn.setStyleSheet("color: black;  background-color: gainsboro") 
                                                                                    
                         aanpBtn = QPushButton('Aanpassen')
                         aanpBtn.clicked.connect(lambda: writeVal(self.qspin.value(), rpweb, self))
                        
-                        grid.addWidget(aanpBtn, 4, 1)
+                        grid.addWidget(aanpBtn, 4, 1, 1, 1, Qt.AlignRight)
                         aanpBtn.setFont(QFont("Arial",10))
                         aanpBtn.setFixedWidth(100) 
                         aanpBtn.setStyleSheet("color: black;  background-color: gainsboro") 
