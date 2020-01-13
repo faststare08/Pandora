@@ -10,4 +10,5 @@ From now on updates and changes are described on this page
            toonGrafieken.py colors differentiated graph lines
            LINUX Installation.txt changed for inststallation python3 and pip3 installation
            for python3 is installed on newest version Unbuntu
+           bestelOrder.py added close button changing quantity
            
