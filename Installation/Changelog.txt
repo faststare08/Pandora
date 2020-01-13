@@ -6,4 +6,5 @@ From now on updates and changes are described on this page
 2020-12-01 filePicklist.py more listitems in combobox then 10 in Linux, adjustment with setStyleSheet.
            filePicklist.py font, color  and sort items adjustments for QComboBox applied.
            filepicklist.py number of copies supplied
+2020-13-01 filePicklist.py warning added if no filename is selected.
            
